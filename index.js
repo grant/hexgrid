@@ -4,11 +4,14 @@ var Point = require('point2d');
 /**
  * A hexagonal grid layout
  * Uses axial/trapezoidal coordinate space with pointy-top hexagons
+ * - Increasing x goes right
+ * - Increasing y goes bottom right
  * @param {Object} options Extra options
  */
 function Hexgrid (options) {
   // The distance between the center of a hexagon and a corner in pixels
   this.size = options.size || 100;
+  // The displacement of the Hexgrid. By default this is (0,0) and represents the center of the hexcell at (0,0)
   this.origin = options.origin || new Point();
 
   // Derived properties
@@ -61,6 +64,21 @@ Hexgrid.prototype = {
     if (!this.isEmpty(point)) {
       return this.grid[point.y][point.x];
     }
+  },
+
+  /**
+   * Gets the center of the hexcell as a Cartesian point.
+   * Translates the hexcell's axial coordinate system point to Cartesian.
+   * @param {Hexcell} hexcell The hexcell
+   * @returns {Point} The center of the hexcell
+   */
+  getXY: function (hexcell) {
+    var x = (hexcell.point.x * this._horiSpacing) + (hexcell.point.y * this._horiSpacing * 0.5);
+    x += this.origin.x - (this._width * 0.5);
+    var y = (hexcell.point.y * this._vertSpacing);
+    y += this.origin.y - (this._height * 0.5);
+    var point = new Point(x, y);
+    return point;
   },
 
   /**
