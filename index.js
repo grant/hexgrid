@@ -1,12 +1,15 @@
 
+var Point = require('point2d');
+
 /**
  * A hexagonal grid layout
  * Uses axial/trapezoidal coordinate space with pointy-top hexagons
  * @param {Object} options Extra options
  */
 function Hexgrid (options) {
-  // The distance between the center of a hexagon and a corner 
-  this.size = options.size;
+  // The distance between the center of a hexagon and a corner in pixels
+  this.size = options.size || 100;
+  this.origin = options.origin || new Point();
 
   // Derived properties
   // 
