@@ -1,4 +1,3 @@
-hexgrid
-=======
+# hexgrid
 
 A hexagonal grid

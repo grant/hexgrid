@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/grant/hexgrid/issues"
   },
-  "homepage": "https://github.com/grant/hexgrid"
+  "homepage": "https://github.com/grant/hexgrid",
+  "dependencies": {
+    "point2d": "0.0.0"
+  },
+  "devDependencies": {
+    "assert": "^1.1.2"
+  }
 }
