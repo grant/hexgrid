@@ -22,6 +22,7 @@ function Hexgrid (options) {
   this._vertSpacing = (3/4) * this._height;
   this._horiSpacing = this._width;
 
+  // Where all the hexagons are stored
   this._grid = {};
 }
 
@@ -48,6 +49,17 @@ Hexgrid.prototype = {
   remove: function (point) {
     if (this.grid[point.y]) {
       delete this.grid[point.y][point.x];
+    }
+  },
+
+  /**
+   * Gets the hexcell at a point
+   * @param {Point} point The point to get the cell at
+   * @returns {Hexcell} The cell at this point
+   */
+  get: function (point) {
+    if (!this.isEmpty(point)) {
+      return this.grid[point.y][point.x];
     }
   },
 
