@@ -39,6 +39,16 @@ Hexgrid.prototype = {
   },
 
   /**
+   * Removes a hexcell at a point
+   * @param {Point} point The point to remove the cell from
+   */
+  remove: function (point) {
+    if (this.grid[point.y]) {
+      delete this.grid[point.y][point.x];
+    }
+  },
+
+  /**
    * Returns true if the grid is empty at the given point
    * @param {Point} point The point to check
    * @returns {Boolean} True if the cell is empty
