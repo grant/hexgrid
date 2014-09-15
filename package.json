@@ -1,0 +1,24 @@
+{
+  "name": "hexgrid",
+  "version": "0.0.0",
+  "description": "A hexagonal grid",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grant/hexgrid.git"
+  },
+  "keywords": [
+    "hex",
+    "hexagon",
+    "grid"
+  ],
+  "author": "Grant Timmerman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grant/hexgrid/issues"
+  },
+  "homepage": "https://github.com/grant/hexgrid"
+}
