@@ -89,6 +89,22 @@ Hexgrid.prototype = {
   isEmpty: function (point) {
     var row = this.grid[point.y];
     return !row || !row[point.x];
+  },
+
+  /**
+   * Gets all the hexcells in an array
+   * @returns {Hexcell[]} An array of hexcells
+   */
+  getHexcells: function () {
+    var cells = [];
+    for (var rowIndex in this.grid) {
+      var row = this.grid[rowIndex];
+      for (var columnIndex in row) {
+        var column = this.grid[rowIndex][columnIndex];
+        cells.push(column);
+      }
+    }
+    return cells;
   }
 };
 

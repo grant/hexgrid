@@ -96,4 +96,20 @@ describe('Hexgrid', function () {
       assert(grid.getXY(new Point(0, 10)).equals(x, y));
     });
   });
+
+  // Hexcell.getHexcells
+  describe('getHexcells', function () {
+    it('should get all cells', function () {
+      var grid = new Hexgrid();
+      grid.add(new Hexcell(new Point()));
+      assert.equal(grid.getHexcells().length, 1);
+    });
+
+    it('shouldn\'t get cells that have been removed', function () {
+      var grid = new Hexcell();
+      grid.add(new Hexcell(new Point()));
+      grid.remove(new Point());
+      assert.equal(grid.getHexcells().length, 0);
+    });
+  });
 });
