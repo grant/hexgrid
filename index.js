@@ -9,6 +9,7 @@ var Point = require('point2d');
  * @param {Object} options Extra options
  */
 function Hexgrid (options) {
+  options = options || {};
   // The distance between the center of a hexagon and a corner in pixels
   this.size = options.size || 100;
   // The displacement of the Hexgrid. By default this is (0,0) and represents the center of the hexcell at (0,0)
@@ -36,13 +37,13 @@ Hexgrid.prototype = {
    */
   add: function (hexcell) {
     // add row if doesn't exist
-    var row = this.grid[hexcell.point.y];
+    var row = this._grid[hexcell.point.y];
     if (!row) {
-      this.grid[hexcell.point.y] = {};
+      this._grid[hexcell.point.y] = {};
     }
     
     // add hexagon to row
-    this.grid[hexcell.point.y][hexcell.point.x] = hexcell;
+    this._grid[hexcell.point.y][hexcell.point.x] = hexcell;
   },
 
   /**
@@ -50,8 +51,8 @@ Hexgrid.prototype = {
    * @param {Point} point The point to remove the cell from
    */
   remove: function (point) {
-    if (this.grid[point.y]) {
-      delete this.grid[point.y][point.x];
+    if (this._grid[point.y]) {
+      delete this._grid[point.y][point.x];
     }
   },
 
@@ -62,7 +63,7 @@ Hexgrid.prototype = {
    */
   get: function (point) {
     if (!this.isEmpty(point)) {
-      return this.grid[point.y][point.x];
+      return this._grid[point.y][point.x];
     }
   },
 
@@ -87,7 +88,7 @@ Hexgrid.prototype = {
    * @returns {Boolean} True if the cell is empty
    */
   isEmpty: function (point) {
-    var row = this.grid[point.y];
+    var row = this._grid[point.y];
     return !row || !row[point.x];
   },
 
@@ -97,10 +98,10 @@ Hexgrid.prototype = {
    */
   getHexcells: function () {
     var cells = [];
-    for (var rowIndex in this.grid) {
-      var row = this.grid[rowIndex];
+    for (var rowIndex in this._grid) {
+      var row = this._grid[rowIndex];
       for (var columnIndex in row) {
-        var column = this.grid[rowIndex][columnIndex];
+        var column = this._grid[rowIndex][columnIndex];
         cells.push(column);
       }
     }

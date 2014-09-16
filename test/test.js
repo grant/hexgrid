@@ -2,6 +2,7 @@
 var assert = require('assert');
 var Hexgrid = require('../');
 var Hexcell = require('hexcell');
+var Point = require('point2d');
 
 function objEqual (obj1, obj2) {
   return JSON.stringify(obj1) === JSON.stringify(obj2);
@@ -39,7 +40,7 @@ describe('Hexgrid', function () {
     it('should remove properly', function () {
       var grid = new Hexgrid();
       grid.add(new Hexcell(new Point()));
-      grid.remove(new Hexcell(new Point()));
+      grid.remove(new Point());
       assert(grid.isEmpty(new Point()));
     });
 
@@ -80,9 +81,9 @@ describe('Hexgrid', function () {
         size: 100
       });
       grid.add(new Hexcell(new Point(10, 0)));
-      var x = 100 * 2 * 10 - (100 * Math.sqrt(3)/2);
+      var x = 100 * Math.sqrt(3) * 10 - (100 * Math.sqrt(3)/2);
       var y = -100;
-      assert(grid.getXY(new Point(10, 0)).equals(x, y));
+      assert(grid.getXY(new Point(10, 0)).equals(new Point(x, y)));
     });
 
     it('should have proper y offset', function () {
@@ -92,8 +93,8 @@ describe('Hexgrid', function () {
       grid.add(new Hexcell(new Point(0, 10)));
       var width = 100 * Math.sqrt(3);
       var x = 10 * (width/2) - (width/2);
-      var y = 10 * 2 * 100 - 100;
-      assert(grid.getXY(new Point(0, 10)).equals(x, y));
+      var y = (3/4) * 10 * 2 * 100 - 100;
+      assert(grid.getXY(new Point(0, 10)).equals(new Point(x, y)));
     });
   });
 
@@ -106,7 +107,7 @@ describe('Hexgrid', function () {
     });
 
     it('shouldn\'t get cells that have been removed', function () {
-      var grid = new Hexcell();
+      var grid = new Hexgrid();
       grid.add(new Hexcell(new Point()));
       grid.remove(new Point());
       assert.equal(grid.getHexcells().length, 0);

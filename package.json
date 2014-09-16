@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/grant/hexgrid",
   "dependencies": {
-    "point2d": "0.0.0"
+    "point2d": "0.0.0",
+    "hexcell": "0.0.1"
   },
   "devDependencies": {
     "assert": "^1.1.2"
