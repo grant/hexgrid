@@ -62,4 +62,38 @@ describe('Hexgrid', function () {
       assert(!grid.isEmpty(new Point()));
     });
   });
+
+  // Hexcell.getXY
+  describe('description', function () {
+    it('should use the grid\'s origin', function () {
+      var grid = new Hexgrid({
+        size: 100,
+        origin: new Point(33, 44)
+      });
+      grid.add(new Hexcell(new Point()));
+      var expected = new Point(33 - (100 * Math.sqrt(3)/2), 44 - 100);
+      assert(grid.getXY(new Point()).equals(expected));
+    });
+
+    it('should have proper x offset', function () {
+      var grid = new Hexgrid({
+        size: 100
+      });
+      grid.add(new Hexcell(new Point(10, 0)));
+      var x = 100 * 2 * 10 - (100 * Math.sqrt(3)/2);
+      var y = -100;
+      assert(grid.getXY(new Point(10, 0)).equals(x, y));
+    });
+
+    it('should have proper y offset', function () {
+      var grid = new Hexgrid({
+        size: 100
+      });
+      grid.add(new Hexcell(new Point(0, 10)));
+      var width = 100 * Math.sqrt(3);
+      var x = 10 * (width/2) - (width/2);
+      var y = 10 * 2 * 100 - 100;
+      assert(grid.getXY(new Point(0, 10)).equals(x, y));
+    });
+  });
 });

@@ -69,16 +69,16 @@ Hexgrid.prototype = {
   /**
    * Gets the center of the hexcell as a Cartesian point.
    * Translates the hexcell's axial coordinate system point to Cartesian.
-   * @param {Hexcell} hexcell The hexcell
+   * @param {Point} hexcell The point of the hexcell
    * @returns {Point} The center of the hexcell
    */
-  getXY: function (hexcell) {
-    var x = (hexcell.point.x * this._horiSpacing) + (hexcell.point.y * this._horiSpacing * 0.5);
+  getXY: function (point) {
+    var x = (point.x * this._horiSpacing) + (point.y * this._horiSpacing * 0.5);
     x += this.origin.x - (this._width * 0.5);
-    var y = (hexcell.point.y * this._vertSpacing);
+    var y = (point.y * this._vertSpacing);
     y += this.origin.y - (this._height * 0.5);
-    var point = new Point(x, y);
-    return point;
+    var xy = new Point(x, y);
+    return xy;
   },
 
   /**
