@@ -18,7 +18,7 @@ describe('Hexgrid', function () {
     });
   });
 
-  // Hexgrid.add
+  // Hexgrid.add(hexcell)
   describe('add', function () {
     it('should add hexcells to the grid', function () {
       var grid = new Hexgrid();
@@ -34,7 +34,7 @@ describe('Hexgrid', function () {
     });
   });
 
-  // Hexcell.remove
+  // Hexcell.remove(point)
   describe('remove', function () {
     it('should remove properly', function () {
       var grid = new Hexgrid();
@@ -49,7 +49,7 @@ describe('Hexgrid', function () {
     });
   });
 
-  // Hexcell.isEmpty
+  // Hexcell.isEmpty(point)
   describe('isEmpty', function () {
     it('should be true when there is no hexagon at a cell', function () {
       var grid = new Hexgrid();
@@ -63,7 +63,7 @@ describe('Hexgrid', function () {
     });
   });
 
-  // Hexcell.getXY
+  // Hexcell.getXY(point)
   describe('description', function () {
     it('should use the grid\'s origin', function () {
       var grid = new Hexgrid({
@@ -97,7 +97,7 @@ describe('Hexgrid', function () {
     });
   });
 
-  // Hexcell.getHexcells
+  // Hexcell.getHexcells()
   describe('getHexcells', function () {
     it('should get all cells', function () {
       var grid = new Hexgrid();
