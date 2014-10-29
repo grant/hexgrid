@@ -27,9 +27,20 @@ grid.add(firstCell);
 
 ## Methods
 
-### Hexgrid.add()
-### Hexgrid.remove()
-### Hexgrid.get()
-### Hexgrid.getXY()
-### Hexgrid.isEmpty()
+### Hexgrid.add(hexcell)
+Adds a cell to the grid
+
+### Hexgrid.remove(point2d)
+Removes a grid cell at `point2d`
+
+### Hexgrid.get(point2d)
+Gets a hexcell at `point2d`
+
+### Hexgrid.getXY(point2d)
+Gets the calculated x and y (based on the hexagonal grid) of a point
+
+### Hexgrid.isEmpty(point2d)
+Returns true if there is no hexcell at `point2d`
+
 ### Hexgrid.getHexcells()
+Returns an array of all hexcells
