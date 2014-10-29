@@ -16,7 +16,7 @@ function Hexgrid (options) {
   this.origin = options.origin || new Point();
 
   // Derived properties
-  // 
+  //
   // height: The height of a hexagon
   // width: The width of a hexagon
   // vertSpacing: The vertical spacing between hexagons
@@ -41,7 +41,7 @@ Hexgrid.prototype = {
     if (!row) {
       this._grid[hexcell.point.y] = {};
     }
-    
+
     // add hexagon to row
     this._grid[hexcell.point.y][hexcell.point.x] = hexcell;
   },
