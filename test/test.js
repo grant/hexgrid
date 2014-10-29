@@ -65,7 +65,7 @@ describe('Hexgrid', function () {
   });
 
   // Hexcell.getXY(point)
-  describe('description', function () {
+  describe('getXY', function () {
     it('should use the grid\'s origin', function () {
       var grid = new Hexgrid({
         size: 100,
