@@ -1,6 +1,6 @@
 {
   "name": "hexgrid",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A hexagonal grid",
   "main": "index.js",
   "scripts": {
